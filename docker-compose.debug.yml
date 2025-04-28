@@ -1,0 +1,6 @@
+services:
+  testphpapp:
+    image: testphpapp
+    build:
+      context: .
+      dockerfile: ./Dockerfile

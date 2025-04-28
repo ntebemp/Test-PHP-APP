@@ -23,3 +23,23 @@ This application lets you manage a list of the best brands with a PHP backend an
 1. Clone the repository :
    ```bash
    git clone https://github.com/ntebemp/Test-PHP-APP.git
+
+2. Build Docker images
+
+   docker-compose up --build 
+
+3. Useful links
+
+   Backend : http://localhost:8000
+
+   Frontend : http://localhost:8080 
+
+## API Info
+
+- GET /api/brands
+
+- POST /api/brands
+
+- PUT /api/brands/{id}
+
+- DELETE /api/brands/{id}
