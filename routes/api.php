@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('localize')->group(function () {
     Route::apiResource('brands', BrandController::class);
 });
+
+Route::apiResource('brands', BrandController::class);

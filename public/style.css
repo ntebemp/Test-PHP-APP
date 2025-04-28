@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.add-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-rating {
+    text-align: right;
+}
+
+.stars {
+    color: gold;
+    font-size: 18px;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.card-footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bonus-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bonus-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bonus-btn:hover {
+    background-color: #218838;
+}
+
+.visit-site {
+    color: #007bff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.visit-site:hover {
+    text-decoration: underline;
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: auto; 
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+/* 1. Top section */
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-rank {
+    background: #eee;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Logo */
+.card-logo {
+    max-height: 50px;
+}
+
+/* 2. Middle section */
+.card-middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.casino-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rating {
+    color: gold;
+    font-size: 16px;
+}
+
+/* 3. Bonus section */
+.card-bonus {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* 4. Actions */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn, .delete-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .add-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    .card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .casino-name {
+        font-size: 16px;
+    }
+
+    .rating {
+        font-size: 14px;
+    }
+
+    .card-actions {
+        display: flex;
+        justify-content: flex-end; 
+        gap: 10px; 
+    }
+
+    .edit-btn, .delete-btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content input, 
+    .modal-content textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .modal-content button {
+        font-size: 14px;
+    }
+}
+
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-fields label {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-fields input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-fields select {
+    width: 100%;              
+    padding: 12px;            
+    margin-top: 10px;        
+    margin-bottom: 20px;      
+    border: 1px solid #ccc; 
+    border-radius: 8px;      
+    font-size: 16px;          
+    background-color: #fff;  
+}
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.validate-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.validate-btn:hover {
+    background-color: #218838;
+}
+
+
+
+.brand-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .brand-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .brand-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  
+  .brand-details {
+    flex: 1;
+  }
+  
+  .brand-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+ 

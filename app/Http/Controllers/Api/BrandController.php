@@ -17,11 +17,11 @@ class BrandController extends Controller
         $country = $request->country ?? 'DEFAULT';
 
         $brands = Brand::where(function ($query) use ($country) {
-            $query->where('country_codes', 'like', "%$country%")
-                ->orWhereNull('country_codes')
-                ->orWhere('country_codes', '');
+            $query->whereNotNull('country_codes') 
+                  ->where('country_codes', '!=', '');
         })->get();
 
+        
         return response()->json($brands);
     }
 
@@ -30,13 +30,17 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'brand_name' => 'required|string|max:255',
             'brand_image' => 'required|url',
-            'rating' => 'required|integer|min:0|max:5',
+            'rating' => 'required|numeric|min:0|max:5', 
         ]);
 
-        $brand = Brand::create($request->all());
+        $countryCode = $request->header('CF-IPCountry') ?? 'FR';
+
+        $validated['country_codes'] = $countryCode;
+    
+        $brand = Brand::create($validated);
 
         return response()->json($brand, 201);
     }

@@ -15,8 +15,6 @@ This application lets you manage a list of the best brands with a PHP backend an
 
 ### Additional features
 - Mark pagination (5 per page).
-- Search by brand name.
-- Filter by country (ISO-2 code).
 
 ## Start application
 
