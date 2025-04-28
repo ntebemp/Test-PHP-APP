@@ -9,6 +9,6 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('layouts.pages.index'); // ton fichier index.blade.php
+        return view('layouts.pages.index');
     }
 }
